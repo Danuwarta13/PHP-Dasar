@@ -1,5 +1,6 @@
 <?php 
 
+    // User-defined Funtion
     function salam($waktu ="datang", $nama = "Admins") {
         return "Selamat $waktu, $nama";
     }
