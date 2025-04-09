@@ -30,6 +30,9 @@
 
         <!-- Cara Kedua -->
         <?php for ($b=1; $b <= 5 ; $b++) : ?>
+        <!-- Menggunakan ternary -->
+        <!-- <?php echo $b %2 == 1 ? "<tr class='warna-baris'>" : "<tr>" ?> -->
+        <!-- Menggunakan If else biasa -->
         <?php if ($b % 2 == 1) : ?>
         <tr class="warna-baris">
             <?php else : ?>
