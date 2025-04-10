@@ -26,7 +26,7 @@ echo date("l", time() - 60*60*24*100);
 //  jam, menit, detik, bulan, tanggal, tahun
 echo "<br>";
 echo "<br>";
-echo "Hari Kelahira Rhinozzz ";
+echo "Hari Kelahiran Rhinozzz ";
 echo date('l', mktime(0,0,0,9,13,2003));
 
 
