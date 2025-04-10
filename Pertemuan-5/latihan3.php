@@ -1,4 +1,6 @@
 <?php 
+    // Array multidimensi / Array didalam array
+    // Array numerik
     $mahasiswa = [
         ["Rhinozzz", 210103104, "Teknik Informatika", "Rhinozz@ac.id"],
         ["Yanto", 213321123, "Teknik Mersin", "Yanto@ac.id"],
