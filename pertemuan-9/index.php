@@ -1,6 +1,6 @@
 <?php 
     require 'functions.php';
-    $film =  query("SELECT * FROM film");    
+    $film = query("SELECT * FROM film");    
 ?>
 
 <!DOCTYPE html>
@@ -9,42 +9,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Admin</title>
+    <title>Film Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>Daftar Film</h1>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-film"></i> Film Management Dashboard</h1>
+            <a href="tambah.php" class="btn btn-add"><i class="fas fa-plus"></i> Add New Film</a>
+        </header>
 
-    <table border="1" cellpadding="10" cellspacing="0">
-        <tr>
-            <th>No</th>
-            <th>Judul</th>
-            <th>Sutradara</th>
-            <th>Tahun</th>
-            <th>Genre</th>
-            <th>Poster</th>
-            <th>Aksi</th>
-        </tr>
+        <div class="card">
+            <div class="search-bar">
+                <input type="text" placeholder="Search films...">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </div>
 
-        <?php $id = 1 ?>
-        <?php foreach ($film as $f) :?>
-        <tr>
-            <td><?= $id ?></td>
-            <td><?= $f["judul"] ?></td>
-            <td><?= $f["sutradara"] ?></td>
-            <td><?= $f["tahun"] ?></td>
-            <td><?= $f["genre"] ?></td>
-            <td>
-                <img src="img/<?=$f["poster"] ?>" alt="" width="50">
-            </td>
-            <td>
-                <a href="">Ubah</a> |
-                <a href="">Hapus</a>
-            </td>
-        </tr>
-        <?php $id++ ?>
-        <?php endforeach; ?>
-    </table>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Title</th>
+                            <th>Director</th>
+                            <th>Year</th>
+                            <th>Genre</th>
+                            <th>Poster</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $id = 1 ?>
+                        <?php foreach ($film as $f) :?>
+                        <tr>
+                            <td><?= $id ?></td>
+                            <td><strong><?= $f["judul"] ?></strong></td>
+                            <td><?= $f["sutradara"] ?></td>
+                            <td><?= $f["tahun"] ?></td>
+                            <td>
+                                <span class="status-badge badge-success"><?= $f["genre"] ?></span>
+                            </td>
+                            <td>
+                                <img src="img/<?=$f["poster"] ?>" alt="<?= $f["judul"] ?>" class="poster-thumb">
+                            </td>
+                            <td class="action-btns">
+                                <a href="" class="edit-btn"><i class="fas fa-edit"></i> Edit</a>
+                                <a href="" class="delete-btn"><i class="fas fa-trash-alt"></i> Delete</a>
+                            </td>
+                        </tr>
+                        <?php $id++ ?>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pagination">
+                <a href="#">&laquo;</a>
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">&raquo;</a>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
