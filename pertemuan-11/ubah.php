@@ -1,35 +1,34 @@
-<?php 
-    // include file functions.php
-    require 'functions.php';
+<?php
+// include file functions.php
+require 'functions.php';
 
 
-    // ambil id dari url
-    $id = $_GET["id"];
+// ambil id dari url
+$id = $_GET["id"];
 
-    // query data film berdasarkan id
-    $film = query("SELECT * FROM film WHERE id = $id")[0];
+// query data film berdasarkan id
+$film = query("SELECT * FROM film WHERE id = $id")[0];
 
-    // cek apakah tombol submit sudah ditekan atau belum
-    if (isset($_POST["submit"]) ){
-        // cek apakah data berhasil diubah atau tidak 
-        if (ubah($_POST) > 0) {
-            echo "
+// cek apakah tombol submit sudah ditekan atau belum
+if (isset($_POST["submit"])) {
+    // cek apakah data berhasil diubah atau tidak 
+    if (ubah($_POST) > 0) {
+        echo "
             <script>
                 alert('Data berhasil ubah!');
                 document.location.href = 'index.php';
             </script>
                 ";
-        } else {
-            echo "<script>
+    } else {
+        echo "<script>
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Data gagal ditambahkan!'
             });
         </script>";
-        }
-        
     }
+}
 
 ?>
 <!DOCTYPE html>
@@ -53,34 +52,35 @@
         </div>
 
         <form action="" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="id" value="<?=$film["id"]?>">
+            <input type="hidden" name="id" value="<?= $film["id"] ?>">
             <div class="form-group">
                 <label for="judul">Title</label>
-                <input type="text" name="judul" id="judul" value="<?=$film["judul"]?>" class="form-control"
+                <input type="text" name="judul" id="judul" value="<?= $film["judul"] ?>" class="form-control"
                     placeholder="Enter film title" required>
             </div>
 
             <div class="form-group">
                 <label for="sutradara">Director</label>
-                <input type="text" name="sutradara" id="sutradara" value="<?=$film["sutradara"]?>" class="form-control"
-                    placeholder="Enter director's name" required>
+                <input type="text" name="sutradara" id="sutradara" value="<?= $film["sutradara"] ?>"
+                    class="form-control" placeholder="Enter director's name" required>
             </div>
 
             <div class="form-group">
                 <label for="tahun">Year</label>
-                <input type="number" name="tahun" id="tahun" value="<?=$film["tahun"]?>" class="form-control"
+                <input type="number" name="tahun" id="tahun" value="<?= $film["tahun"] ?>" class="form-control"
                     placeholder="Enter release year" min="1900" max="<?= date('Y') + 5 ?>" required>
             </div>
 
             <div class="form-group">
                 <label for="genre">Genre</label>
-                <input type="text" name="genre" id="genre" value="<?=$film["genre"]?>" class="form-control"
+                <input type="text" name="genre" id="genre" value="<?= $film["genre"] ?>" class="form-control"
                     placeholder="Enter genre (comma separated)" required>
             </div>
 
             <div class="form-group">
                 <label for="poster">Poster</label>
-                <input type="text" name="poster" id="poster" value="<?=$film["poster"]?>" class="form-control" required>
+                <input type="text" name="poster" id="poster" value="<?= $film["poster"] ?>" class="form-control"
+                    required>
                 <!-- <div class="file-upload">
                     <label class="file-upload-btn">
                         <input type="file" name="poster" id="poster" class="file-upload-input" accept="image/*">

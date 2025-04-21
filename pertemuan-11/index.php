@@ -1,6 +1,6 @@
-<?php 
-    require 'functions.php';
-    $film = query("SELECT * FROM film");    
+<?php
+require 'functions.php';
+$film = query("SELECT * FROM film");
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +43,7 @@
                     </thead>
                     <tbody>
                         <?php $id = 1 ?>
-                        <?php foreach ($film as $f) :?>
+                        <?php foreach ($film as $f) : ?>
                         <tr>
                             <td><?= $id ?></td>
                             <td><strong><?= $f["judul"] ?></strong></td>
@@ -53,12 +53,12 @@
                                 <span class="status-badge badge-success"><?= $f["genre"] ?></span>
                             </td>
                             <td>
-                                <img src="img/<?=$f["poster"] ?>" alt="<?= $f["judul"] ?>" class="poster-thumb">
+                                <img src="img/<?= $f["poster"] ?>" alt="<?= $f["judul"] ?>" class="poster-thumb">
                             </td>
                             <td class="action-btns">
-                                <a href="ubah.php?id=<?=$f["id"]?>" class="edit-btn"><i class="fas fa-edit"></i>
+                                <a href="ubah.php?id=<?= $f["id"] ?>" class="edit-btn"><i class="fas fa-edit"></i>
                                     Edit</a>
-                                <a href="hapus.php?id=<?=$f["id"]?>" onclick="return confirm('Yakin?');"
+                                <a href="hapus.php?id=<?= $f["id"] ?>" onclick="return confirm('Yakin?');"
                                     class="delete-btn"><i class="fas fa-trash-alt"></i>
                                     Delete</a>
                             </td>

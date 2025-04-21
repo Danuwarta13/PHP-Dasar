@@ -1,28 +1,29 @@
-<?php 
-    // include file functions.php
-    require 'functions.php';
+<?php
+// include file functions.php
+require 'functions.php';
 
-    // cek apakah tombol submit sudah ditekan atau belum
-    if (isset($_POST["submit"]) ){
+// cek apakah tombol submit sudah ditekan atau belum
+if (isset($_POST["submit"])) {
 
-        if (tambah($_POST) > 0) {
-            echo "
+    if (tambah($_POST) > 0) {
+        echo "
             <script>
                 alert('Data berhasil ditambahkan!');
                 document.location.href = 'index.php';
             </script>
-                ";
-        } else {
-            echo "<script>
+            ";
+    } else {
+        echo "
+            <script>
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Data gagal ditambahkan!'
             });
-        </script>";
-        }
-        
+            </script>
+            ";
     }
+}
 
 ?>
 <!DOCTYPE html>
