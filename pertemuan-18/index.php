@@ -3,7 +3,6 @@
 session_start(); // memulai session
 
 // mengecek apakah user sudah Login atau belum
-
 if (!isset($_SESSION["login"])) {
     header("Location: login.php");
     exit;
